@@ -1,6 +1,5 @@
 import RoutesApp from "./routes";
 import { ToastContainer } from "react-toastify";
- import { ToastContainer, toast } from 'react-toastify';
 function App() {
   return (
     <div className="App">
