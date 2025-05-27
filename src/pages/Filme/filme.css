@@ -1,0 +1,240 @@
+/* Filmes.css */
+
+.filme-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.filme-info h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #222;
+  letter-spacing: -0.5px;
+}
+
+.filme-info img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.filme-info img:hover {
+  transform: scale(1.01);
+}
+
+.movie-meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.release-date {
+  background-color: #e63946;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffc107;
+}
+
+.filme-info h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  color: #222;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.filme-info h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #e63946, #ffc107);
+}
+
+.filme-info .overview {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.loading::after {
+  content: '...';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+.area-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.area-buttons button {
+  position: relative;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.area-buttons button:first-child {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+}
+
+.area-buttons button:last-child {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.area-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #a777e3, #6e8efb);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+.area-buttons button:hover::before {
+  opacity: 1;
+}
+
+.area-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.area-buttons button:active {
+  transform: translateY(1px);
+}
+
+.area-buttons button a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Efeito para o botão de trailer quando hover */
+.area-buttons button:last-child:hover {
+  color: white;
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .filme-info {
+    padding: 1.5rem;
+  }
+  
+  .filme-info h1 {
+    font-size: 2rem;
+  }
+  
+  .movie-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* Estilos para a lista de filmes salvos */
+.lista-filmes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+.lista-filmes li {
+    list-style: none;
+}
+
+.lista-filmes img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.lista-filmes img:hover {
+    transform: scale(1.05);
+}
+
+.sem-filmes {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-remover {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.btn-remover:hover {
+    background-color: #cc0000;
+}
